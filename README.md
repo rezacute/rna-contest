@@ -17,7 +17,25 @@ Predict RNA 3D structure from sequence data.
 
 ## Evaluation
 
-New evaluation metric designed to reward greater accuracy.
+**TM-score** (Template Modeling Score): 0.0 to 1.0 (higher is better)
+
+- Measures similarity between predicted and experimental 3D structures
+- For each test RNA sequence, submit 5 predictions
+- Final score = average of best-of-5 TM-scores across all targets
+- Some targets have multiple reference structures (score based on best match)
+
+## Submission Format
+
+CSV with columns:
+```
+ID,resname,resid,x_1,y_1,z_1,...x_5,y_5,z_5
+R1107_1,G,1,-7.561,9.392,9.361,... -7.301,9.023,8.932
+R1107_2,G,1,-8.02,11.014,14.606,... -7.953,10.02,12.127
+```
+
+- Submit C1' atom coordinates for each residue
+- 5 structure predictions per sequence
+- Use US-align for rotation/translation alignment
 
 ## Links
 
